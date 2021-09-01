@@ -25,24 +25,21 @@
 
 	$("#login-button").click(function(){
         // var password = $("#in-password").val();
-		let endpoint = "http://192.168.1.58/api/auth/login";
+		let endpoint = "http://192.168.1.58:2087/api/auth/signin";
 		console.log("singin");
         // event.preventDefault();
         $.ajax({
             type : "POST",
             url : endpoint,
-			// async: true,
-			// headers : ({
-			// 	"accept": "application/json",
-			// 	"Access-Control-Allow-Origin":"*"
-			// }),
+			dataType : 'json',
             data : ({
                 username : $("#in-username").val(),
                 password : $("#in-password").val()
             }),
-            success : function(result){
-				console.log("Success", result);
-				$(location).attr(href,"http://www.google.com");
+            success : function(data){
+				console.log("Success", data);
+				// $(location).attr(href,"https://www.google.com/");;
+				window.location.href = "/" + data.username;
             }, 
 			error: function(xhr, status, err) {
 				console.log("err", err);
