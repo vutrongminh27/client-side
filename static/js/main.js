@@ -27,14 +27,14 @@
         // var password = $("#in-password").val();
 		let endpoint = "http://113.161.152.35:2089/api/auth/signin";
 		console.log("singin");
-        // event.preventDefault();
+        console.log("Data: ", $("#in-username").val())
         $.ajax({
             type : "POST",
             url : endpoint,
 			dataType : 'json',
             data : ({
-                username : $("#in-username").val(),
-                password : $("#in-password").val()
+                username : $("#exampleInputUsername").val(),
+                password : $("#exampleInputPassword").val()
             }),
             success : function(data){
 				console.log("Success", data);
