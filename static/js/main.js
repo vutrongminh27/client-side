@@ -25,7 +25,7 @@
 
 	$("#login-button").click(function(){
         // var password = $("#in-password").val();
-		let endpoint = "http://113.161.152.35:2089/api/auth/signin";
+		let endpoint = process.env.API_URL + "/api/auth/signin";
 		console.log("singin");
         console.log("Data: ", $("#in-username").val())
         $.ajax({
